@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes driftSlow {
+  0%, 100% {
+    transform: translate3d(0px, 0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate3d(24px, -18px, 0px) scale(1.05);
+  }
+}
+
+@keyframes driftReverse {
+  0%, 100% {
+    transform: translate3d(0px, 0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate3d(-26px, 16px, 0px) scale(1.04);
+  }
+}
+
+.ambient-bg {
+  position: relative;
+  overflow-x: clip;
+  background-image: radial-gradient(rgba(79, 70, 229, 0.11) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.dark .ambient-bg {
+  background-image: radial-gradient(rgba(34, 211, 238, 0.1) 1px, transparent 1px);
+}
+
+.ambient-orb-1 {
+  animation: driftSlow 16s ease-in-out infinite;
+}
+
+.ambient-orb-2 {
+  animation: driftReverse 20s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-orb-1,
+  .ambient-orb-2 {
+    animation: none;
+  }
+}
